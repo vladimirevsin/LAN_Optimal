@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DistributionDataController">
+   <children>
+      <VBox prefHeight="924.0" prefWidth="795.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                  <items>
+                        <MenuItem fx:id="butSave" mnemonicParsing="false" onAction="#saveFile" text="Сохранить">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem fx:id="butLoad" mnemonicParsing="false" onAction="#loadFile" text="Загрузить">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                    <MenuItem fx:id="butClose" mnemonicParsing="false" onAction="#exit" text="Выйти" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="О программе">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#aboutProgram" text="О Программе" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ScrollPane prefHeight="892.0" prefWidth="795.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="941.0" prefWidth="791.0">
+                     <children>
+                        <Accordion layoutY="-2.0" maxHeight="905.0" maxWidth="788.0" minHeight="779.0" minWidth="788.0" prefHeight="892.0" prefWidth="788.0">
+                          <panes>
+                            <TitledPane animated="true" prefHeight="713.0" prefWidth="788.0" text="Сервера">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="621.0" prefWidth="786.0">
+                                       <children>
+                                          <VBox prefHeight="575.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="680.0" text="Сервера">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox prefHeight="89.0" prefWidth="691.0">
+                                                   <children>
+                                                      <TextField fx:id="textFieldNameServer" prefHeight="31.0" prefWidth="226.0" promptText="Название">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="textFieldCapacityServer" prefHeight="31.0" prefWidth="226.0" promptText="Вместимость">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="textFieldCost" prefHeight="31.0" prefWidth="226.0" promptText="Стоимость">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="textFieldServerTimetoWork" prefHeight="31.0" prefWidth="226.0" promptText="Время работы">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Button fx:id="addServerButton" mnemonicParsing="false" onAction="#addServerClick" prefHeight="32.0" prefWidth="213.0" text="Добавить сервер">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="addServerButton1" mnemonicParsing="false" onAction="#crearServer" prefHeight="32.0" prefWidth="213.0" text="Очистить">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <AnchorPane prefHeight="454.0" prefWidth="774.0">
+                                                   <children>
+                                                      <TableView fx:id="tableServers" editable="true" prefHeight="361.0" prefWidth="669.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="columnServerName" prefWidth="227.0" text="Наименование" />
+                                                          <TableColumn fx:id="columnServerCapacity" prefWidth="135.0" text="Вместимость" />
+                                                          <TableColumn fx:id="columnServerCost" prefWidth="150.0" text="Стоимость " />
+                                                            <TableColumn fx:id="columnServerTimeToWork" prefWidth="250.0" text="Время работы" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                    
+                                                         </children>
+                                             <opaqueInsets>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </opaqueInsets>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="true" prefHeight="633.0" prefWidth="788.0" text="Ресурсы">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="672.0" prefWidth="786.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <VBox prefHeight="553.0" prefWidth="523.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="680.0" text="Ресурсы" />
+                                                
+                                                                  <HBox prefHeight="90.0">
+                                                               <children>
+                                                                  <TextField fx:id="textFieldNameResource" prefHeight="31.0" prefWidth="226.0" promptText="Введите название ресурса">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </TextField>
+                                                                  <TextField fx:id="textFieldVolumeResource" prefHeight="31.0" prefWidth="226.0" promptText="Введите размер ресурса">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </TextField>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="56.0" prefWidth="523.0">
+                                                               <children>
+                                                                  <Button fx:id="addResourceButton" alignment="CENTER" mnemonicParsing="false" onAction="#addResouceClick" prefHeight="31.0" prefWidth="143.0" text="Добавить ресурс">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Button>
+                                                                  <Button fx:id="addResourceButton1" alignment="CENTER" mnemonicParsing="false" onAction="#clearResource" prefHeight="31.0" prefWidth="143.0" text="Очистить">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                
+                                                                  <AnchorPane prefHeight="363.0" prefWidth="518.0">
+                                                               <children>
+                                                                  <TableView fx:id="tableInfResource" editable="true" onMouseClicked="#editResource" layoutY="10.0" prefHeight="396.0" prefWidth="503.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                                     <columns>
+                                                                        <TableColumn fx:id="columnResourceName" prefWidth="312.0" text="Наименование ресурса" />
+                                                                        <TableColumn fx:id="columnResourceValue" prefWidth="189.0" text="Размер" />
+                                                                     </columns>
+                                                                  </TableView>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox prefHeight="530.0" prefWidth="239.0">
+                                                         <children>
+                                                            <Button fx:id="butFillTableServerCost" mnemonicParsing="false" onAction="#fillTable" text="Заполнить">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </Button>
+                                                            <TableView fx:id="tableServerAndResources" editable="true" prefHeight="511.0" prefWidth="239.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="columnServerInCostResToServ" prefWidth="128.0" text="Сервер" />
+                                                                  <TableColumn fx:id="columnCostInCostResToServ" editable="true" onEditCommit="#editCost" prefWidth="118.0" text="Стоимость" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="true" prefHeight="551.0" prefWidth="1282.0" text="Распределение ресурсов">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="804.0" prefWidth="784.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox prefHeight="57.0" prefWidth="762.0">
+                                                   <children>
+                                                      <Label text="Коэф. доставки">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <TextField id="koefCostSendToServer" fx:id="koefCostSendToServer" promptText="Введите коэф. доставки">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Label text="Коэф. размещения ">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <TextField id="koefCostPlace" fx:id="koefCostPlace" prefHeight="31.0" prefWidth="217.0" promptText="Введите коэф. размещения">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                                  <items>
+                                                      <Button fx:id="butSolveWithGA" mnemonicParsing="false" onAction="#solveWithGAClick" text="Генетический алгоритм" />
+                                                    <Button fx:id="solveBranchAndBounds" mnemonicParsing="false" onAction="#solveWithBranchAndBounds" text="Метод ветвей и границ" />
+                                                      <Button fx:id="solveStohastic" mnemonicParsing="false" onAction="#solveStohastic" text="Случайное распределение" />
+                                                  </items>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </opaqueInsets>
+                                                </ToolBar>
+                                                <TreeTableView fx:id="tableResult" prefHeight="684.0" prefWidth="762.0">
+                                                  <columns>
+                                                    <TreeTableColumn fx:id="tableResultName" prefWidth="190.0" text="Название" />
+                                                      <TreeTableColumn fx:id="tableResultFree" prefWidth="190.0" text="Свободно" />
+                                                    <TreeTableColumn fx:id="tableResultUsed" prefWidth="190.0" text="Занято" />
+                                                      <TreeTableColumn fx:id="tableResultCost" prefWidth="190.0" text="Стоимость" />
+                                                  </columns>
+                                                </TreeTableView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                </AnchorPane>
+                              </content>
+                            </TitledPane>
+                              <TitledPane animated="true" text="Компьютеры">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane prefHeight="811.0" prefWidth="787.0">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="793.0" prefWidth="776.0">
+                                                   <children>
+                                                      <VBox prefHeight="811.0" prefWidth="787.0">
+                                                         <children>
+                                                            <HBox prefHeight="49.0" prefWidth="787.0">
+                                                               <children>
+                                                                  <Label prefHeight="28.0" prefWidth="156.0" text="Название компьютера">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <TextField fx:id="nameWS" prefHeight="31.0" prefWidth="235.0" promptText="Введите название компьютера">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </TextField>
+                                                                  <Button fx:id="butAddWS" mnemonicParsing="false" onAction="#addWS" text="Добавить компьютер">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="tableWS" prefHeight="749.0" prefWidth="787.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="columnNameWS" prefWidth="783.0" text="Название компьютера" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane animated="true" text="Коммутаторы">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="754.0" prefWidth="774.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="680.0" text="Коммутаторы">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox prefHeight="55.0" prefWidth="774.0">
+                                                   <children>
+                                                      <TextField fx:id="textFieldSwitchName" prefHeight="31.0" prefWidth="226.0" promptText="Введите название коммутатора">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="textFieldTimeToWork" prefHeight="31.0" prefWidth="226.0" promptText="Введите время работы">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Button fx:id="addSwitchButton" mnemonicParsing="false" onAction="#addSwitchClick" prefHeight="32.0" prefWidth="213.0" text="Добавить сервер">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="clearSwitchesBut" mnemonicParsing="false" onAction="#crearSwitch" prefHeight="32.0" prefWidth="213.0" text="Очистить">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <AnchorPane prefHeight="492.0" prefWidth="774.0">
+                                                   <children>
+                                                      <TableView fx:id="tableSwitches" editable="true" layoutY="11.0" prefHeight="668.0" prefWidth="754.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="11.0">
+                                                         <columns>
+                                                            <TableColumn fx:id="columnSwitchName" prefWidth="413.0" text="Наименование" />
+                                                            <TableColumn fx:id="columnSwitchTimeToWork" prefWidth="340.0" text="Вместимость" />
+                                                         </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </opaqueInsets>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane animated="true" prefHeight="550.0" prefWidth="788.0" text="Компьютеры-коммутаторы">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox layoutX="1.0" layoutY="-6.0" prefHeight="745.0" prefWidth="785.0">
+                                             <children>
+                                                <Button fx:id="butFillgridWsToSw" mnemonicParsing="false" onAction="#fillgridWsToSw" text="Заполнить">
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                                <ScrollPane prefHeight="405.0" prefWidth="785.0">
+                                                   <content>
+                                                      <GridPane fx:id="gridPaneWsToSw" maxHeight="1000000.0" maxWidth="100000.0" prefHeight="399.0" prefWidth="780.0" style="-fx-border-color: black;">
+                                                         <rowConstraints>
+                                                            <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane animated="true" prefHeight="712.0" prefWidth="788.0" text="Серверы-коммутаторы">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="745.0" prefWidth="785.0">
+                                             <children>
+                                                <Button fx:id="butFillgridSwToServer" mnemonicParsing="false" onAction="#fillgridSwToServer" text="Заполнить">
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                                <ScrollPane prefHeight="629.0" prefWidth="785.0">
+                                                   <content>
+                                                      <GridPane fx:id="gridPaneSwToServer" maxHeight="100000.0" maxWidth="10000.0" prefHeight="627.0" prefWidth="769.0" style="-fx-border-color: black;">
+                                                         <rowConstraints>
+                                                            <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane prefHeight="200.0" prefWidth="200.0" text="Отправление транзакта">
+                                 <content>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="622.0" prefWidth="758.0">
+                                             <children>
+                                                <HBox prefHeight="58.0" prefWidth="758.0">
+                                                   <children>
+                                                      <Label prefHeight="28.0" prefWidth="76.0" text="Сервер">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ChoiceBox fx:id="choiceRes" prefWidth="150.0">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </ChoiceBox>
+                                                      <Label prefHeight="30.0" prefWidth="112.0" text="Компьютер">
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ChoiceBox fx:id="choiceWs" prefHeight="31.0" prefWidth="162.0">
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </ChoiceBox>
+                                                      <TextField fx:id="textFieldError" prefHeight="31.0" prefWidth="88.0" promptText="Введите погрешность" text="2">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Button mnemonicParsing="false" onAction="#simulate" prefHeight="31.0" prefWidth="148.0" text="Симулировать">
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <TextArea fx:id="textAreaResultPath" prefHeight="516.0" prefWidth="758.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
